@@ -7,7 +7,6 @@ import Image from 'next/image';
 import {
   QuestionMarkCircleIcon,
   CheckCircleIcon,
-  XCircleIcon,
   HeartIcon,
   ChatBubbleLeftIcon,
   ArrowPathRoundedSquareIcon,
@@ -51,7 +50,6 @@ interface PostProps {
 export function Post({ post, onComplete }: PostProps) {
   const [showOptions, setShowOptions] = useState(false);
   const [answered, setAnswered] = useState(false);
-  const [selectedTechnique, setSelectedTechnique] = useState<MediaTechnique | null>(null);
   const { gameState, updateScore, updateStreak, markPostComplete, addHint } = useGame();
 
   const handleAnswer = (technique: MediaTechnique) => {
@@ -66,7 +64,6 @@ export function Post({ post, onComplete }: PostProps) {
       updateScore(points);
       updateStreak(true);
       setAnswered(true);
-      setSelectedTechnique(technique);
       markPostComplete(post.id);
       onComplete();
     } else {

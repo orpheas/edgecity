@@ -6,7 +6,6 @@ import toast from 'react-hot-toast';
 import {
   QuestionMarkCircleIcon,
   CheckCircleIcon,
-  XCircleIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline';
 
