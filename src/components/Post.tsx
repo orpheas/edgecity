@@ -61,18 +61,18 @@ export function Post({ post, onComplete }: PostProps) {
     const hintPenalty = gameState.hintsUsed.includes(post.id) ? 0.5 : 1;
     const points = Math.floor(basePoints * streakMultiplier * hintPenalty);
 
-    setSelectedTechnique(technique);
-
     if (correct) {
       toast.success(`Correct! +${points} points`);
       updateScore(points);
       updateStreak(true);
       setAnswered(true);
+      setSelectedTechnique(technique);
       markPostComplete(post.id);
       onComplete();
     } else {
       toast.error('Incorrect. Try again!');
       updateStreak(false);
+      // Reset options to allow another attempt
       setShowOptions(false);
       setTimeout(() => setShowOptions(true), 100);
     }
@@ -190,15 +190,12 @@ export function Post({ post, onComplete }: PostProps) {
             </div>
           )}
 
-          {answered && selectedTechnique && (
-            <div className="mt-4 p-4 rounded-lg bg-gray-50">
-              <div className="flex items-center space-x-2">
-                {selectedTechnique === post.technique ? (
-                  <CheckCircleIcon className="h-6 w-6 text-green-500" />
-                ) : (
-                  <XCircleIcon className="h-6 w-6 text-red-500" />
-                )}
-                <p className="text-gray-900">{post.explanation}</p>
+          {/* Only show feedback when answered correctly */}
+          {answered && (
+            <div className="mt-4 flex justify-center">
+              <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 text-green-700">
+                <CheckCircleIcon className="h-5 w-5 mr-2" />
+                <span className="text-sm font-medium">Correct!</span>
               </div>
             </div>
           )}

@@ -6,7 +6,7 @@
       "author": "priceGougerSupreme",
       "timestamp": "2024-03-15T14:30:00Z",
       "technique": "misleading_context",
-      "explanation": "This image is from a 2019 Brexit protest, not a climate protest",
+      "explanation": "",
       "metrics": {
         "likes": 15243,
         "retweets": 4891,
@@ -19,7 +19,7 @@
       "author": "fluoridewatcher",
       "timestamp": "2024-03-14T16:45:00Z",
       "technique": "manipulated_media",
-      "explanation": "The image has been digitally enhanced to add rainbow colors",
+      "explanation": "",
       "metrics": {
         "likes": 8762,
         "retweets": 3421,
@@ -32,7 +32,7 @@
       "author": "WildlifeDaily",
       "timestamp": "2024-03-13T09:15:00Z",
       "technique": "none",
-      "explanation": "This is a genuine, unaltered image of a newly discovered species",
+      "explanation": "",
       "metrics": {
         "likes": 2341,
         "retweets": 876,
@@ -45,7 +45,7 @@
       "author": "hugejackedman",
       "timestamp": "2024-03-12T11:20:00Z",
       "technique": "false_connection",
-      "explanation": "The celebrity has never endorsed this product - image used without context",
+      "explanation": "",
       "metrics": {
         "likes": 24567,
         "retweets": 8901,
@@ -62,7 +62,7 @@
         "url": "/videos/robot.mp4"
       },
       "technique": "fabricated_content",
-      "explanation": "This is a CGI video created to generate viral attention",
+      "explanation": "",
       "metrics": {
         "likes": 45678,
         "retweets": 12345,
@@ -75,7 +75,7 @@
       "author": "",
       "timestamp": "2024-03-10T13:25:00Z",
       "technique": "none",
-      "explanation": "Authentic news story with genuine photo from the event",
+      "explanation": "",
       "metrics": {
         "likes": 543,
         "retweets": 89,

@@ -27,6 +27,7 @@ interface ChallengeModalProps {
 
 export function ChallengeModal({ post, isOpen, onClose, onComplete }: ChallengeModalProps) {
   const [answered, setAnswered] = useState(false);
+  const [selectedTechnique, setSelectedTechnique] = useState<MediaTechnique | null>(null);
   const { gameState, updateScore, updateStreak, markPostComplete, addHint } = useGame();
 
   const handleAnswer = (technique: MediaTechnique) => {
@@ -40,14 +41,14 @@ export function ChallengeModal({ post, isOpen, onClose, onComplete }: ChallengeM
       toast.success(`Correct! +${points} points`);
       updateScore(points);
       updateStreak(true);
+      setAnswered(true);
+      setSelectedTechnique(technique);
+      markPostComplete(post.id);
+      onComplete();
     } else {
       toast.error('Incorrect. Try again!');
       updateStreak(false);
     }
-
-    setAnswered(true);
-    markPostComplete(post.id);
-    onComplete();
   };
 
   const handleHint = () => {
@@ -111,20 +112,11 @@ export function ChallengeModal({ post, isOpen, onClose, onComplete }: ChallengeM
                   </>
                 )}
 
-                {answered && (
-                  <div className="bg-gray-50 p-4 rounded-lg">
-                    <div className="flex items-start space-x-3">
-                      {post.technique === post.technique ? (
-                        <CheckCircleIcon className="h-6 w-6 text-green-500 flex-shrink-0 mt-1" />
-                      ) : (
-                        <XCircleIcon className="h-6 w-6 text-red-500 flex-shrink-0 mt-1" />
-                      )}
-                      <div>
-                        <h3 className="font-semibold text-gray-900 mb-1">
-                          {post.technique === post.technique ? 'Correct!' : 'Incorrect'}
-                        </h3>
-                        <p className="text-gray-700">{post.explanation}</p>
-                      </div>
+                {answered && selectedTechnique && (
+                  <div className="flex justify-center">
+                    <div className="inline-flex items-center px-4 py-2 rounded-full bg-green-50 text-green-700">
+                      <CheckCircleIcon className="h-5 w-5 mr-2" />
+                      <span className="text-sm font-medium">Correct!</span>
                     </div>
                   </div>
                 )}
