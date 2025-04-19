@@ -154,13 +154,21 @@ export function Post({ post, onComplete }: PostProps) {
               </span>
             </div>
             {!answered && (
-              <button
-                onClick={handleHint}
-                className="text-gray-500 hover:text-gray-700 transition-colors"
-                disabled={gameState.hintsUsed.includes(post.id)}
-              >
-                <QuestionMarkCircleIcon className="h-5 w-5" />
-              </button>
+              <div className="flex items-center space-x-2">
+                <button
+                  onClick={() => setShowOptions(!showOptions)}
+                  className="text-blue-500 hover:text-blue-600 text-sm font-medium"
+                >
+                  Identify
+                </button>
+                <button
+                  onClick={handleHint}
+                  className="text-gray-500 hover:text-gray-700 transition-colors"
+                  disabled={gameState.hintsUsed.includes(post.id)}
+                >
+                  <QuestionMarkCircleIcon className="h-5 w-5" />
+                </button>
+              </div>
             )}
           </div>
 
