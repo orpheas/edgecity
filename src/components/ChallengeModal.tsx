@@ -27,7 +27,7 @@ interface ChallengeModalProps {
 
 export function ChallengeModal({ post, isOpen, onClose, onComplete }: ChallengeModalProps) {
   const [answered, setAnswered] = useState(false);
-  const { gameState, updateScore, updateStreak, markPostComplete, useHint } = useGame();
+  const { gameState, updateScore, updateStreak, markPostComplete, addHint } = useGame();
 
   const handleAnswer = (technique: MediaTechnique) => {
     const correct = technique === post.technique;
@@ -52,7 +52,7 @@ export function ChallengeModal({ post, isOpen, onClose, onComplete }: ChallengeM
 
   const handleHint = () => {
     if (!gameState.hintsUsed.includes(post.id)) {
-      useHint(post.id);
+      addHint(post.id);
       toast('Hint: Look carefully at the media and its relationship to the claim', {
         icon: '💡',
       });

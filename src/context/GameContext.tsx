@@ -50,7 +50,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
     }));
   };
 
-  const useHint = (postId: string) => {
+  const addHint = (postId: string) => {
     setGameState(prev => ({
       ...prev,
       hintsUsed: [...prev.hintsUsed, postId],
@@ -68,7 +68,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
         updateScore,
         updateStreak,
         markPostComplete,
-        useHint,
+        addHint,
         resetGame,
       }}
     >

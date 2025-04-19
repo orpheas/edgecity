@@ -36,6 +36,6 @@ export interface GameContextType {
   updateScore: (points: number) => void;
   updateStreak: (correct: boolean) => void;
   markPostComplete: (postId: string) => void;
-  useHint: (postId: string) => void;
+  addHint: (postId: string) => void;
   resetGame: () => void;
 } 
