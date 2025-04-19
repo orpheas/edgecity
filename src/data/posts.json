@@ -1,0 +1,98 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "content": "the average family saves $4,000 switching to GreenEnergy. not surprising when big oil keeps gouging honest americans.",
+      "author": "priceGougerSupreme",
+      "timestamp": "2024-03-15T14:30:00Z",
+      "media": {
+        "type": "image",
+        "url": "/images/old-protest.jpg"
+      },
+      "technique": "misleading_context",
+      "explanation": "This image is from a 2019 Brexit protest, not a climate protest",
+      "metrics": {
+        "likes": 15243,
+        "retweets": 4891,
+        "comments": 1253
+      }
+    },
+    {
+      "id": "2",
+      "content": "researchers found trace chemicals in drinking water that could potentially be linked to health issues. government remains silent.",
+      "author": "fluoridewatcher",
+      "timestamp": "2024-03-14T16:45:00Z",
+      "technique": "manipulated_media",
+      "explanation": "The image has been digitally enhanced to add rainbow colors",
+      "metrics": {
+        "likes": 8762,
+        "retweets": 3421,
+        "comments": 892
+      }
+    },
+    {
+      "id": "3",
+      "content": "Scientists discover new species of butterfly in Amazon rainforest",
+      "author": "WildlifeDaily",
+      "timestamp": "2024-03-13T09:15:00Z",
+      "media": {
+        "type": "image",
+        "url": "/images/butterfly.jpg"
+      },
+      "technique": "none",
+      "explanation": "This is a genuine, unaltered image of a newly discovered species",
+      "metrics": {
+        "likes": 2341,
+        "retweets": 876,
+        "comments": 145
+      }
+    },
+    {
+      "id": "4",
+      "content": "remember when we used to respect police? now the left wants to defund them completely. this is why crime is skyrocketing everywhere",
+      "author": "hugejackedman",
+      "timestamp": "2024-03-12T11:20:00Z",
+      "technique": "false_connection",
+      "explanation": "The celebrity has never endorsed this product - image used without context",
+      "metrics": {
+        "likes": 24567,
+        "retweets": 8901,
+        "comments": 3245
+      }
+    },
+    {
+      "id": "5",
+      "content": "EXCLUSIVE: Robot walks out of lab during AI experiment! Watch the footage!",
+      "author": "TechNews365",
+      "timestamp": "2024-03-11T18:00:00Z",
+      "media": {
+        "type": "video",
+        "url": "/videos/robot.mp4"
+      },
+      "technique": "fabricated_content",
+      "explanation": "This is a CGI video created to generate viral attention",
+      "metrics": {
+        "likes": 45678,
+        "retweets": 12345,
+        "comments": 5432
+      }
+    },
+    {
+      "id": "6",
+      "content": "Local bakery wins 'Best Pastry' award at national competition",
+      "author": "LocalFoodGuide",
+      "timestamp": "2024-03-10T13:25:00Z",
+      "media": {
+        "type": "image",
+        "url": "/images/bakery.jpg"
+      },
+      "technique": "none",
+      "explanation": "Authentic news story with genuine photo from the event",
+      "metrics": {
+        "likes": 543,
+        "retweets": 89,
+        "comments": 32
+      }
+    }
+  ]
+} 
