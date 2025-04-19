@@ -5,10 +5,6 @@
       "content": "the average family saves $4,000 switching to GreenEnergy. not surprising when big oil keeps gouging honest americans.",
       "author": "priceGougerSupreme",
       "timestamp": "2024-03-15T14:30:00Z",
-      "media": {
-        "type": "image",
-        "url": "/images/old-protest.jpg"
-      },
       "technique": "misleading_context",
       "explanation": "This image is from a 2019 Brexit protest, not a climate protest",
       "metrics": {
@@ -32,13 +28,9 @@
     },
     {
       "id": "3",
-      "content": "Scientists discover new species of butterfly in Amazon rainforest",
+      "content": "top hedge dude told me over ginger matcha that inflation ‘isn’t real,’ it’s just a narrative they tweak to scare you into cashing out. coincidence that the next day m2 supply metrics mysteriously vanished from the dashboard? scroll faster, sleep deeper.",
       "author": "WildlifeDaily",
       "timestamp": "2024-03-13T09:15:00Z",
-      "media": {
-        "type": "image",
-        "url": "/images/butterfly.jpg"
-      },
       "technique": "none",
       "explanation": "This is a genuine, unaltered image of a newly discovered species",
       "metrics": {
@@ -62,7 +54,7 @@
     },
     {
       "id": "5",
-      "content": "EXCLUSIVE: Robot walks out of lab during AI experiment! Watch the footage!",
+      "content": "idk who needs to hear this, but the reason mental health apps are free rn is bc your micro‑mood swings are worth more than ad clicks. aggregate enough cortisol spikes and you can predict election turnout within ±0.7%. the algorithm cares, promise",
       "author": "TechNews365",
       "timestamp": "2024-03-11T18:00:00Z",
       "media": {
@@ -79,13 +71,9 @@
     },
     {
       "id": "6",
-      "content": "Local bakery wins 'Best Pastry' award at national competition",
+      "content": "breakfast round‑table: one epidemiologist whispers the next pandemic will target the immuno‑complacent. fancy way of saying the ppl who refuse quarterly boosters become statistical accelerants. headline embargo lifts next week; consider this a courtesy",
       "author": "LocalFoodGuide",
       "timestamp": "2024-03-10T13:25:00Z",
-      "media": {
-        "type": "image",
-        "url": "/images/bakery.jpg"
-      },
       "technique": "none",
       "explanation": "Authentic news story with genuine photo from the event",
       "metrics": {

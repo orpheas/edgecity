@@ -31,6 +31,18 @@ function formatNumber(num: number): string {
   return num.toString();
 }
 
+function formatDate(dateString: string): string {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60));
+  
+  if (diffInHours < 24) {
+    return `${diffInHours}h`;
+  } else {
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  }
+}
+
 interface PostProps {
   post: PostType;
   onComplete: () => void;
@@ -71,23 +83,38 @@ export function Post({ post, onComplete }: PostProps) {
     }
   };
 
+  // Generate a consistent avatar URL for each user
+  const avatarUrl = `https://api.dicebear.com/7.x/avataaars/svg?seed=${post.author}`;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-lg shadow-md p-4 max-w-2xl mx-auto mb-4"
+      className={`bg-white p-4 border-b border-gray-100 hover:bg-gray-50 transition-colors cursor-pointer ${
+        answered ? 'opacity-60' : ''
+      }`}
     >
-      <div className="flex items-start space-x-3">
-        <div className="flex-1">
-          <div className="flex items-center space-x-2">
-            <span className="font-bold text-gray-900">{post.author}</span>
-            <span className="text-gray-600 text-sm">
-              {new Date(post.timestamp).toLocaleDateString()}
-            </span>
+      <div className="flex space-x-3">
+        <div className="flex-shrink-0">
+          <div className="h-10 w-10 rounded-full overflow-hidden bg-gray-200">
+            <Image
+              src={avatarUrl}
+              alt={`${post.author}'s avatar`}
+              width={40}
+              height={40}
+              className="w-full h-full"
+            />
           </div>
-          <p className="mt-2 text-gray-900">{post.content}</p>
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center text-sm">
+            <span className="font-bold text-gray-900 hover:underline">{post.author}</span>
+            <span className="text-gray-500 mx-1">·</span>
+            <span className="text-gray-500">{formatDate(post.timestamp)}</span>
+          </div>
+          <p className="text-gray-900 mt-1 whitespace-pre-wrap break-words">{post.content}</p>
           {post.media && (
-            <div className="mt-3 relative rounded-lg overflow-hidden">
+            <div className="mt-3 rounded-2xl overflow-hidden border border-gray-100">
               {post.media.type === 'image' ? (
                 <Image
                   src={post.media.url}
@@ -107,67 +134,64 @@ export function Post({ post, onComplete }: PostProps) {
             </div>
           )}
           
-          <div className="mt-3 flex items-center space-x-6 text-gray-600">
-            <div className="flex items-center space-x-2">
-              <ChatBubbleLeftIcon className="h-5 w-5" />
-              <span className="text-sm">{formatNumber(post.metrics.comments)}</span>
+          <div className="mt-3 flex items-center justify-between max-w-md">
+            <div className="group flex items-center text-gray-500 hover:text-blue-500 transition-colors">
+              <ChatBubbleLeftIcon className="h-5 w-5 mr-2" />
+              <span className="text-sm group-hover:text-blue-500">
+                {formatNumber(post.metrics.comments)}
+              </span>
             </div>
-            <div className="flex items-center space-x-2">
-              <ArrowPathRoundedSquareIcon className="h-5 w-5" />
-              <span className="text-sm">{formatNumber(post.metrics.retweets)}</span>
+            <div className="group flex items-center text-gray-500 hover:text-green-500 transition-colors">
+              <ArrowPathRoundedSquareIcon className="h-5 w-5 mr-2" />
+              <span className="text-sm group-hover:text-green-500">
+                {formatNumber(post.metrics.retweets)}
+              </span>
             </div>
-            <div className="flex items-center space-x-2">
-              <HeartIcon className="h-5 w-5" />
-              <span className="text-sm">{formatNumber(post.metrics.likes)}</span>
+            <div className="group flex items-center text-gray-500 hover:text-red-500 transition-colors">
+              <HeartIcon className="h-5 w-5 mr-2" />
+              <span className="text-sm group-hover:text-red-500">
+                {formatNumber(post.metrics.likes)}
+              </span>
             </div>
+            {!answered && (
+              <button
+                onClick={handleHint}
+                className="text-gray-500 hover:text-gray-700 transition-colors"
+                disabled={gameState.hintsUsed.includes(post.id)}
+              >
+                <QuestionMarkCircleIcon className="h-5 w-5" />
+              </button>
+            )}
           </div>
+
+          {!answered && showOptions && (
+            <div className="mt-4 grid grid-cols-1 gap-2">
+              {techniques.map((technique) => (
+                <button
+                  key={technique.value}
+                  onClick={() => handleAnswer(technique.value)}
+                  className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg text-left transition text-gray-900"
+                >
+                  {technique.label}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {answered && (
+            <div className="mt-4 p-4 rounded-lg bg-gray-50">
+              <div className="flex items-center space-x-2">
+                {post.technique === post.technique ? (
+                  <CheckCircleIcon className="h-6 w-6 text-green-500" />
+                ) : (
+                  <XCircleIcon className="h-6 w-6 text-red-500" />
+                )}
+                <p className="text-gray-900">{post.explanation}</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
-
-      {!answered && (
-        <div className="mt-4">
-          <button
-            onClick={() => setShowOptions(!showOptions)}
-            className="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition"
-          >
-            Identify Technique
-          </button>
-          <button
-            onClick={handleHint}
-            className="ml-2 text-gray-600 hover:text-gray-800"
-            disabled={gameState.hintsUsed.includes(post.id)}
-          >
-            <QuestionMarkCircleIcon className="h-6 w-6" />
-          </button>
-        </div>
-      )}
-
-      {showOptions && !answered && (
-        <div className="mt-4 grid grid-cols-1 gap-2">
-          {techniques.map((technique) => (
-            <button
-              key={technique.value}
-              onClick={() => handleAnswer(technique.value)}
-              className="bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-lg text-left transition text-gray-900"
-            >
-              {technique.label}
-            </button>
-          ))}
-        </div>
-      )}
-
-      {answered && (
-        <div className="mt-4 p-4 rounded-lg bg-gray-50">
-          <div className="flex items-center space-x-2">
-            {post.technique === post.technique ? (
-              <CheckCircleIcon className="h-6 w-6 text-green-500" />
-            ) : (
-              <XCircleIcon className="h-6 w-6 text-red-500" />
-            )}
-            <p className="text-gray-900">{post.explanation}</p>
-          </div>
-        </div>
-      )}
     </motion.div>
   );
 } 

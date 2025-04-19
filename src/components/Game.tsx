@@ -33,18 +33,18 @@ export function Game() {
         animate={{ opacity: 1 }}
         className="max-w-2xl mx-auto p-6"
       >
-        <div className="bg-white rounded-lg shadow-lg p-6">
+        <div className="bg-white rounded-2xl shadow-sm p-6">
           <h2 className="text-2xl font-bold mb-4 text-gray-900">Game Summary</h2>
           <div className="space-y-4">
-            <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
+            <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
               <span className="text-gray-900">Final Score:</span>
               <span className="font-bold text-xl text-gray-900">{gameState.score}</span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
+            <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
               <span className="text-gray-900">Highest Streak:</span>
               <span className="font-bold text-gray-900">{gameState.highestStreak}</span>
             </div>
-            <div className="flex justify-between items-center p-3 bg-gray-50 rounded">
+            <div className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
               <span className="text-gray-900">Hints Used:</span>
               <span className="font-bold text-gray-900">{gameState.hintsUsed.length}</span>
             </div>
@@ -52,7 +52,7 @@ export function Game() {
           <div className="mt-8">
             <button
               onClick={handleRestart}
-              className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition"
+              className="w-full bg-blue-500 text-white py-3 rounded-full hover:bg-blue-600 transition"
             >
               Play Again
             </button>
@@ -64,22 +64,23 @@ export function Game() {
 
   return (
     <>
-      <div className="max-w-xl mx-auto bg-white rounded-lg shadow-sm">
-        <div className="sticky top-0 bg-white border-b border-gray-100 p-4 z-10">
+      <div className="max-w-xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100">
+        <div className="sticky top-0 bg-white/80 backdrop-blur-sm border-b border-gray-100 p-4 z-10">
           <div className="flex justify-between items-center">
-            <div>
+            <div className="flex items-center space-x-4">
               <span className="text-lg font-bold text-gray-900">Score: {gameState.score}</span>
-              <span className="ml-4 text-sm text-gray-600">
-                Streak: {gameState.currentStreak}
-              </span>
+              <div className="flex items-center space-x-1">
+                <span className="text-sm font-medium text-gray-900">Streak:</span>
+                <span className="text-sm text-gray-600">{gameState.currentStreak}</span>
+              </div>
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm font-medium text-gray-600">
               {gameState.postsCompleted.length} of {posts.length} completed
             </div>
           </div>
         </div>
 
-        <div className="divide-y divide-gray-100">
+        <div>
           {posts.map((post) => (
             <Tweet
               key={post.id}
