@@ -51,6 +51,7 @@ interface PostProps {
 export function Post({ post, onComplete }: PostProps) {
   const [showOptions, setShowOptions] = useState(false);
   const [answered, setAnswered] = useState(false);
+  const [selectedTechnique, setSelectedTechnique] = useState<MediaTechnique | null>(null);
   const { gameState, updateScore, updateStreak, markPostComplete, addHint } = useGame();
 
   const handleAnswer = (technique: MediaTechnique) => {
@@ -60,18 +61,21 @@ export function Post({ post, onComplete }: PostProps) {
     const hintPenalty = gameState.hintsUsed.includes(post.id) ? 0.5 : 1;
     const points = Math.floor(basePoints * streakMultiplier * hintPenalty);
 
+    setSelectedTechnique(technique);
+
     if (correct) {
       toast.success(`Correct! +${points} points`);
       updateScore(points);
       updateStreak(true);
+      setAnswered(true);
+      markPostComplete(post.id);
+      onComplete();
     } else {
       toast.error('Incorrect. Try again!');
       updateStreak(false);
+      setShowOptions(false);
+      setTimeout(() => setShowOptions(true), 100);
     }
-
-    setAnswered(true);
-    markPostComplete(post.id);
-    onComplete();
   };
 
   const handleHint = () => {
@@ -186,10 +190,10 @@ export function Post({ post, onComplete }: PostProps) {
             </div>
           )}
 
-          {answered && (
+          {answered && selectedTechnique && (
             <div className="mt-4 p-4 rounded-lg bg-gray-50">
               <div className="flex items-center space-x-2">
-                {post.technique === post.technique ? (
+                {selectedTechnique === post.technique ? (
                   <CheckCircleIcon className="h-6 w-6 text-green-500" />
                 ) : (
                   <XCircleIcon className="h-6 w-6 text-red-500" />
