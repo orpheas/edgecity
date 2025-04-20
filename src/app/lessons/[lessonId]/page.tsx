@@ -7,6 +7,7 @@ import { Lesson, Post } from "@/types/game";
 import { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
 import ReactPlayer from "react-player/youtube"; // Import ReactPlayer (specifically for YouTube)
+import * as React from 'react'; // Import React with namespace
 
 // Helper function to fetch data (replace with actual API call or file read if needed)
 // For simplicity, we'll import directly, but this could be async
@@ -32,14 +33,20 @@ async function getLessonData(
   }
 }
 
-interface LessonPageProps {
-  params: { lessonId: string };
+// Define params interface that matches the dynamic route
+interface PageParams {
+  lessonId: string;
 }
 
-export default function LessonPage(props: LessonPageProps) {
-  // Access lessonId safely
-  const { params } = props;
-  const lessonId = String(params.lessonId);
+// Use the appropriate interface for the component props
+interface LessonPageProps {
+  params: any; // Use any to allow React.use() to work
+}
+
+export default function LessonPage({ params }: LessonPageProps) {
+  // For Next.js 15, we'll use a variable to hold the lessonId
+  const paramsValue = React.use(params) as PageParams;
+  const lessonId = paramsValue.lessonId;
   
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [posts, setPosts] = useState<Post[] | null>(null);
