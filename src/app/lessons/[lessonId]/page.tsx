@@ -7,7 +7,6 @@ import { Lesson, Post } from "@/types/game";
 import { useState, useEffect } from "react";
 import { notFound } from "next/navigation";
 import ReactPlayer from "react-player/youtube"; // Import ReactPlayer (specifically for YouTube)
-import React from 'react'; // Import React for React.use()
 
 // Helper function to fetch data (replace with actual API call or file read if needed)
 // For simplicity, we'll import directly, but this could be async
@@ -34,12 +33,13 @@ async function getLessonData(
 }
 
 interface LessonPageProps {
-  params: Promise<{ lessonId: string }>;
+  params: { lessonId: string };
 }
 
-export default function LessonPage({ params }: LessonPageProps) {
-  // Unwrap params using React.use()
-  const { lessonId } = React.use(params);
+export default function LessonPage(props: LessonPageProps) {
+  // Access lessonId safely
+  const { params } = props;
+  const lessonId = String(params.lessonId);
   
   const [lesson, setLesson] = useState<Lesson | null>(null);
   const [posts, setPosts] = useState<Post[] | null>(null);
