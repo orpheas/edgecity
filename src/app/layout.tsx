@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Media Literacy Challenge",
+  title: "Flashbang",
   description: "Learn to identify media manipulation techniques through interactive challenges",
 };
 
