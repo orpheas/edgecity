@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": "cb-1",
+      "content": "After deciding Brand X cars were unreliable, I searched 'Brand X car problems' and found tons of forum posts confirming my suspicion. Didn't bother looking for positive reviews.",
+      "author": "SmartShopper",
+      "timestamp": "2024-05-20T11:30:00Z",
+      "metrics": { "likes": 45, "retweets": 12, "comments": 8 },
+      "isExample": true
+    },
+    {
+      "id": "cb-2",
+      "content": "This candidate's economic plan seems risky based on analysis from multiple independent economists, even though I initially liked their social policies. Need to reconsider.",
+      "author": "OpenMindedVoter",
+      "timestamp": "2024-05-19T15:00:00Z",
+      "metrics": { "likes": 210, "retweets": 88, "comments": 35 },
+      "isExample": false
+    },
+    {
+      "id": "cb-3",
+      "content": "My investment advisor presented data showing my 'favorite' stock is underperforming. I dismissed it, focusing instead on that one week last year it did really well.",
+      "author": "DiamondHandsDave",
+      "timestamp": "2024-05-18T09:05:00Z",
+      "metrics": { "likes": 150, "retweets": 25, "comments": 40 },
+      "isExample": true
+    },
+    {
+      "id": "cb-4",
+      "content": "Heard a rumor about a local company layoff. Found one anonymous online comment mentioning it, now I'm convinced it's happening, despite no official news.",
+      "author": "GossipGuru",
+      "timestamp": "2024-05-17T16:20:00Z",
+      "metrics": { "likes": 30, "retweets": 5, "comments": 11 },
+      "isExample": true
+    },
+    {
+      "id": "cb-5",
+      "content": "Read a study that contradicted my hypothesis. While disappointing, the methodology seems sound. I'll need to adjust my theory based on this new evidence.",
+      "author": "DiligentResearcher",
+      "timestamp": "2024-05-16T10:00:00Z",
+      "metrics": { "likes": 550, "retweets": 120, "comments": 65 },
+      "isExample": false
+    }
+  ]
+}

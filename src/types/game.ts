@@ -1,26 +1,25 @@
-export type MediaTechnique = 
-  | 'misleading_context'
-  | 'manipulated_media'
-  | 'false_connection'
-  | 'fabricated_content'
-  | 'none';
-
 export interface Post {
   id: string;
   content: string;
   author: string;
   timestamp: string;
   media?: {
-    type: 'image' | 'video';
+    type: "image" | "video";
     url: string;
   };
-  technique: MediaTechnique;
-  explanation: string;
+  isExample: boolean;
   metrics: {
     likes: number;
     retweets: number;
     comments: number;
   };
+}
+
+export interface Lesson {
+  id: string;
+  title: string;
+  description: string;
+  youtubeUrl?: string;
 }
 
 export interface GameState {
@@ -38,4 +37,4 @@ export interface GameContextType {
   markPostComplete: (postId: string) => void;
   addHint: (postId: string) => void;
   resetGame: () => void;
-} 
+}

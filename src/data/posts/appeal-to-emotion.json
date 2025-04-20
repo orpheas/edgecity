@@ -1,0 +1,44 @@
+{
+  "posts": [
+    {
+      "id": "ae-1",
+      "content": "Look at this picture of a suffering polar bear! How can you *not* agree that we need to implement these drastic carbon taxes immediately, regardless of the economic impact?",
+      "author": "EcoWarrior",
+      "timestamp": "2024-05-20T12:45:00Z",
+      "metrics": { "likes": 1520, "retweets": 670, "comments": 310 },
+      "isExample": true
+    },
+    {
+      "id": "ae-2",
+      "content": "If we don't pass this surveillance bill *now*, the terrorists will win! Think about the potential danger to your family every time you step outside!",
+      "author": "SafetyFirst",
+      "timestamp": "2024-05-19T08:10:00Z",
+      "metrics": { "likes": 980, "retweets": 450, "comments": 280 },
+      "isExample": true
+    },
+    {
+      "id": "ae-3",
+      "content": "The data clearly shows a 15% increase in efficiency with the new process, leading to significant cost savings. This is a positive development for the company.",
+      "author": "DataDrivenExec",
+      "timestamp": "2024-05-18T14:00:00Z",
+      "metrics": { "likes": 300, "retweets": 90, "comments": 40 },
+      "isExample": false
+    },
+    {
+      "id": "ae-4",
+      "content": "They're trying to take away our traditions! How dare they suggest changing the town mascot? Are you going to stand by and let our heritage be erased by outsiders?",
+      "author": "TraditionKeeper",
+      "timestamp": "2024-05-17T11:55:00Z",
+      "metrics": { "likes": 750, "retweets": 310, "comments": 190 },
+      "isExample": true
+    },
+    {
+      "id": "ae-5",
+      "content": "It's truly heartbreaking to see the devastation caused by the recent floods. We're organizing a community fundraiser to help those affected rebuild their lives.",
+      "author": "CommunityHelper",
+      "timestamp": "2024-05-16T17:30:00Z",
+      "metrics": { "likes": 1100, "retweets": 550, "comments": 120 },
+      "isExample": false
+    }
+  ]
+}
